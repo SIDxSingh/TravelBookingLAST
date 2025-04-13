@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TravelEase - Plan Your Dream Vacation</title>
+    <link rel="icon" href="generated-icon.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/custom.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="index.html">
+                        <i class="fas fa-paper-plane"></i>
+                        <span>TravelEase</span>
+                    </a>
+                </div>
+                <nav class="nav-menu">
+                    <ul>
+                        <li><a href="index.html" class="active">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="recommendations.html">Recommendations</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </nav>
+                <div class="user-actions">
+                    <a href="profile.html" class="profile-link">
+                        <i class="fas fa-user-circle"></i>
+                        <span>My Profile</span>
+                    </a>
+                </div>
+                <div class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero-carousel">
+        <div class="carousel-container">
+            <div class="carousel-slides">
+                <div class="carousel-slide active">
+                    <img src="images/home.avif" alt="Scenic mountain landscape">
+                    <div class="overlay"></div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/hero1.jpg" alt="Beautiful beach sunset">
+                    <div class="overlay"></div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/hom,e1.jpg"City skyline view">
+                    <div class="overlay"></div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="images/home1.jpg" alt="Tropical island paradise">
+                    <div class="overlay"></div>
+                </div>
+            </div>
+            <div class="carousel-content">
+                <h1 class="site-title">TravelEase</h1>
+                <p class="tagline">Plan Your Dream Vacation With Ease</p>
+                <a href="#planner" class="btn btn-primary">Start Planning</a>
+            </div>
+            <div class="carousel-controls">
+                <button class="carousel-prev"><i class="fas fa-chevron-left"></i></button>
+                <div class="carousel-dots">
+                    <button class="dot active" data-slide="0"></button>
+                    <button class="dot" data-slide="1"></button>
+                    <button class="dot" data-slide="2"></button>
+                    <button class="dot" data-slide="3"></button>
+                </div>
+                <button class="carousel-next"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <section class="trip-planner" id="planner">
+        <div class="container">
+            <div class="section-header">
+                <h2>Plan Your Trip</h2>
+                <p>Customize your perfect getaway with our easy-to-use trip planner</p>
+            </div>
+            <div class="planner-form-container">
+                <form class="planner-form">
+                    <div class="form-group">
+                        <label for="destination">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Destination
+                        </label>
+                        <input type="text" id="destination" name="destination" placeholder="Where do you want to go?">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="start-date">
+                                <i class="fas fa-calendar-alt"></i>
+                                Start Date
+                            </label>
+                            <input type="date" id="start-date" name="start-date">
+                        </div>
+                        <div class="form-group">
+                            <label for="end-date">
+                                <i class="fas fa-calendar-alt"></i>
+                                End Date
+                            </label>
+                            <input type="date" id="end-date" name="end-date">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="travelers">
+                                <i class="fas fa-users"></i>
+                                Number of Travelers
+                            </label>
+                            <select id="travelers" name="travelers">
+                                <option value="1">1 Person</option>
+                                <option value="2">2 People</option>
+                                <option value="3">3 People</option>
+                                <option value="4">4 People</option>
+                                <option value="5">5 People</option>
+                                <option value="6+">6+ People</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="budget">
+                                <i class="fas fa-coins"></i>
+                                Max Budget
+                            </label>
+                            <input type="number" id="budget" name="budget" placeholder="Your budget in USD">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-search">
+                        <i class="fas fa-search"></i>
+                        Find My Trip
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="top-destinations">
+        <div class="container">
+            <div class="section-header">
+                <h2>Top Destinations</h2>
+                <p>Explore these amazing destinations for your next adventure</p>
+            </div>
+            <div class="destinations-grid">
+                <div class="destination-card">
+                    <div class="destination-image">
+                        <img src="images/balijpg.jpg" alt="Bali, Indonesia">
+                        <div class="destination-overlay">
+                            <a href="#" class="btn btn-sm btn-light">Explore</a>
+                        </div>
+                    </div>
+                    <div class="destination-content">
+                        <h3>Bali, Indonesia</h3>
+                        <div class="destination-meta">
+                            <span><i class="fas fa-map-marker-alt"></i> Southeast Asia</span>
+                            <span><i class="fas fa-star"></i> 4.8</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="destination-card">
+                    <div class="destination-image">
+                        <img src="images/paris.jpg" alt="Paris, France">
+                        <div class="destination-overlay">
+                            <a href="#" class="btn btn-sm btn-light">Explore</a>
+                        </div>
+                    </div>
+                    <div class="destination-content">
+                        <h3>Paris, France</h3>
+                        <div class="destination-meta">
+                            <span><i class="fas fa-map-marker-alt"></i> Europe</span>
+                            <span><i class="fas fa-star"></i> 4.9</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="destination-card">
+                    <div class="destination-image">
+                        <img src="images/kyoto.jpg" alt="Kyoto, Japan">
+                        <div class="destination-overlay">
+                            <a href="#" class="btn btn-sm btn-light">Explore</a>
+                        </div>
+                    </div>
+                    <div class="destination-content">
+                        <h3>Kyoto, Japan</h3>
+                        <div class="destination-meta">
+                            <span><i class="fas fa-map-marker-alt"></i> East Asia</span>
+                            <span><i class="fas fa-star"></i> 4.7</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="destination-card">
+                    <div class="destination-image">
+                        <img src="images/santorini.jpg" alt="Santorini, Greece">
+                        <div class="destination-overlay">
+                            <a href="#" class="btn btn-sm btn-light">Explore</a>
+                        </div>
+                    </div>
+                    <div class="destination-content">
+                        <h3>Santorini, Greece</h3>
+                        <div class="destination-meta">
+                            <span><i class="fas fa-map-marker-alt"></i> Mediterranean</span>
+                            <span><i class="fas fa-star"></i> 4.9</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="popular-packages">
+        <div class="container">
+            <div class="section-header">
+                <h2>Popular Packages</h2>
+                <p>Discover our most popular travel packages and destinations</p>
+            </div>
+            <div class="packages-container">
+                <div class="package" data-aos="fade-up" data-aos-delay="100">
+                    <div class="package-img">
+                        <img src="images/bali-exploer.jpg" alt="Bali Paradise">
+                        <div class="package-price">₹899</div>
+                    </div>
+                    <div class="package-content">
+                        <h3>Bali Paradise</h3>
+                        <div class="package-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>4.5 (127 reviews)</span>
+                        </div>
+                        <p>Experience the ultimate tropical getaway with pristine beaches and lush landscapes.</p>
+                        <div class="package-features">
+                            <span><i class="fas fa-clock"></i> 7 Days</span>
+                            <span><i class="fas fa-user-friends"></i> 2 People</span>
+                            <span><i class="fas fa-hotel"></i> 4-Star Hotel</span>
+                        </div>
+                        <a href="#" class="btn btn-outline">View Details</a>
+                    </div>
+                </div>
+
+                <div class="package" data-aos="fade-up" data-aos-delay="200">
+                    <div class="package-img">
+                        <img src="images/paris explore.jpg" alt="Paris Explorer">
+                        <div class="package-price">₹1,299</div>
+                    </div>
+                    <div class="package-content">
+                        <h3>Paris Explorer</h3>
+                        <div class="package-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>4.9 (215 reviews)</span>
+                        </div>
+                        <p>Discover the romance and charm of the City of Lights with guided tours and local experiences.</p>
+                        <div class="package-features">
+                            <span><i class="fas fa-clock"></i> 5 Days</span>
+                            <span><i class="fas fa-user-friends"></i> 2 People</span>
+                            <span><i class="fas fa-hotel"></i> Boutique Hotel</span>
+                        </div>
+                        <a href="#" class="btn btn-outline">View Details</a>
+                    </div>
+                </div>
+
+                <div class="package" data-aos="fade-up" data-aos-delay="300">
+                    <div class="package-img">
+                        <img src="images/Japanese Adventure.jpg" alt="Japanese Adventure">
+                        <div class="package-price">₹1,599</div>
+                    </div>
+                    <div class="package-content">
+                        <h3>Japanese Adventure</h3>
+                        <div class="package-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>4.8 (176 reviews)</span>
+                        </div>
+                        <p>Explore the fascinating blend of ancient tradition and modern innovation across Japan.</p>
+                        <div class="package-features">
+                            <span><i class="fas fa-clock"></i> 10 Days</span>
+                            <span><i class="fas fa-user-friends"></i> 2 People</span>
+                            <span><i class="fas fa-hotel"></i> Mixed Accommodations</span>
+                        </div>
+                        <a href="#" class="btn btn-outline">View Details</a>
+                    </div>
+                </div>
+
+                <div class="package" data-aos="fade-up" data-aos-delay="400">
+                    <div class="package-img">
+                        <img src="images/Greek Island Hopping.jpg" alt="Greek Island Hopping">
+                        <div class="package-price">₹1,499</div>
+                    </div>
+                    <div class="package-content">
+                        <h3>Greek Island Hopping</h3>
+                        <div class="package-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>4.6 (143 reviews)</span>
+                        </div>
+                        <p>Sail the Aegean Sea and discover the stunning beauty and rich history of the Greek Islands.</p>
+                        <div class="package-features">
+                            <span><i class="fas fa-clock"></i> 8 Days</span>
+                            <span><i class="fas fa-user-friends"></i> 2 People</span>
+                            <span><i class="fas fa-hotel"></i> Island Hotels</span>
+                        </div>
+                        <a href="#" class="btn btn-outline">View Details</a>
+                    </div>
+                </div>
+
+                <div class="package" data-aos="fade-up" data-aos-delay="500">
+                    <div class="package-img">
+                        <img src="images/African Safari.jpg" alt="African Safari">
+                        <div class="package-price">₹2,199</div>
+                    </div>
+                    <div class="package-content">
+                        <h3>African Safari</h3>
+                        <div class="package-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>4.9 (98 reviews)</span>
+                        </div>
+                        <p>Embark on the adventure of a lifetime with guided wildlife safaris and luxury camping.</p>
+                        <div class="package-features">
+                            <span><i class="fas fa-clock"></i> 7 Days</span>
+                            <span><i class="fas fa-user-friends"></i> 2 People</span>
+                            <span><i class="fas fa-hotel"></i> Luxury Camps</span>
+                        </div>
+                        <a href="#" class="btn btn-outline">View Details</a>
+                    </div>
+                </div>
+
+                <div class="package" data-aos="fade-up" data-aos-delay="600">
+                    <div class="package-img">
+                        <img src="images/New York City Break.jpg" alt="New York City Break">
+                        <div class="package-price">₹1,099</div>
+                    </div>
+                    <div class="package-content">
+                        <h3>New York City Break</h3>
+                        <div class="package-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>4.7 (185 reviews)</span>
+                        </div>
+                        <p>Experience the energy and excitement of the Big Apple with this premium city package.</p>
+                        <div class="package-features">
+                            <span><i class="fas fa-clock"></i> 5 Days</span>
+                            <span><i class="fas fa-user-friends"></i> 2 People</span>
+                            <span><i class="fas fa-hotel"></i> 4-Star Hotel</span>
+                        </div>
+                        <a href="#" class="btn btn-outline">View Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2>What Our Travelers Say</h2>
+                <p>Real experiences from our satisfied customers</p>
+            </div>
+            <div class="testimonials-slider">
+                <div class="testimonial">
+                    <div class="testimonial-image">
+                        <img src="images/sara.jpg" alt="Sarah Johnson">
+                    </div>
+                    <div class="testimonial-content">
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"TravelEase made planning our honeymoon so simple. Everything was perfectly organized, and we had the most amazing time in Bali. Highly recommend!"</p>
+                        <h4>Sarah Johnson</h4>
+                        <span>Bali Paradise Package</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-content">
+                <h2>Subscribe to Our Newsletter</h2>
+                <p>Get exclusive deals, travel tips, and more delivered to your inbox</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Your Email Address">
+                    <button type="submit" class="btn">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <a href="index.html">
+                        <i class="fas fa-paper-plane"></i>
+                        <span>TravelEase</span>
+                    </a>
+                    <p>Making travel planning simple and enjoyable.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h3>Quick Links</h3>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="packages.html">Packages</a></li>
+                            <li><a href="blog.html">Travel Blog</a></li>
+                            <li><a href="contact.html">Contact Us</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Top Destinations</h3>
+                        <ul>
+                            <li><a href="#">Bali, Indonesia</a></li>
+                            <li><a href="#">Paris, France</a></li>
+                            <li><a href="#">Tokyo, Japan</a></li>
+                            <li><a href="#">Santorini, Greece</a></li>
+                            <li><a href="#">New York, USA</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Support</h3>
+                        <ul>
+                            <li><a href="#">FAQs</a></li>
+                            <li><a href="#">Terms & Conditions</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Cancellation Policy</a></li>
+                            <li><a href="#">Customer Support</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                </div>
+                <p class="copyright">© 2023 TravelEase. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="#" class="back-to-top">
+        <i class="fas fa-chevron-up"></i>
+    </a>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
