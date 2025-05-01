@@ -192,6 +192,97 @@
         .category-tab.active::after {
             width: 100%;
         }
+        
+        /* Newsletter styles */
+        .newsletter {
+            background-color: #f5f7fa;
+            padding: 6rem 0;
+            margin-top: 6rem;
+        }
+        
+        .newsletter-content {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .newsletter-content h2 {
+            font-size: 3rem;
+            margin-bottom: 1.6rem;
+            color: var(--text-dark);
+        }
+        
+        .newsletter-content p {
+            font-size: 1.6rem;
+            margin-bottom: 3rem;
+            color: var(--text-medium);
+        }
+        
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .newsletter-form input {
+            flex: 1;
+            padding: 1.4rem;
+            border: 1px solid #ddd;
+            border-radius: 4px 0 0 4px;
+            font-size: 1.6rem;
+        }
+        
+        .newsletter-form button {
+            padding: 1.4rem 2.8rem;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 0 4px 4px 0;
+            font-size: 1.6rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .newsletter-form button:hover {
+            background-color: var(--primary-dark);
+        }
+        
+        #newsletter-message {
+            font-size: 1.6rem;
+            font-weight: 500;
+            border-radius: 4px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        #newsletter-message.success {
+            background-color: #e8f5e9;
+            color: #2e7d32;
+            border: 1px solid #c8e6c9;
+        }
+        
+        #newsletter-message.error {
+            background-color: #ffebee;
+            color: #c62828;
+            border: 1px solid #ffcdd2;
+        }
+        
+        @media (max-width: 576px) {
+            .newsletter-form {
+                flex-direction: column;
+            }
+            
+            .newsletter-form input {
+                border-radius: 4px;
+                margin-bottom: 1rem;
+            }
+            
+            .newsletter-form button {
+                border-radius: 4px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -526,9 +617,10 @@
                 <h2>Get Personalized Recommendations</h2>
                 <p>Subscribe to our newsletter for tailored travel suggestions based on your preferences</p>
                 <form class="newsletter-form">
-                    <input type="email" placeholder="Your Email Address">
+                    <input type="email" name="email" placeholder="Your Email Address" required>
                     <button type="submit" class="btn">Subscribe</button>
                 </form>
+                <div id="newsletter-message" style="margin-top: 20px; padding: 10px; border-radius: 4px; display: none;"></div>
             </div>
         </div>
     </section>
@@ -572,6 +664,7 @@
                             <li><a href="#">Privacy Policy</a></li>
                             <li><a href="#">Cancellation Policy</a></li>
                             <li><a href="#">Customer Support</a></li>
+                            <li><a href="admin-messages.html"><i class="fas fa-lock"></i> Admin Messages</a></li>
                         </ul>
                     </div>
                 </div>
@@ -630,11 +723,128 @@
                     const duration = document.getElementById('filter-duration').value;
                     const type = document.getElementById('filter-type').value;
                     
-                    alert(`Filters applied: Destination: ${destination || 'Any'}, Budget: ${budget || 'Any'}, Duration: ${duration || 'Any'}, Type: ${type || 'Any'}`);
+                    // Filter the recommendation cards based on criteria
+                    recommendationCards.forEach(card => {
+                        let shouldShow = true;
+                        
+                        // Filter by destination
+                        if (destination && !card.querySelector('.meta-item span').textContent.toLowerCase().includes(destination)) {
+                            shouldShow = false;
+                        }
+                        
+                        // Filter by budget
+                        if (budget) {
+                            const priceText = card.querySelector('.recommendation-price').textContent;
+                            const price = parseInt(priceText.match(/₹(\d+)/)[1]);
+                            
+                            if (budget === 'budget' && price >= 1000) shouldShow = false;
+                            if (budget === 'mid-range' && (price < 1000 || price >= 3000)) shouldShow = false;
+                            if (budget === 'luxury' && price < 3000) shouldShow = false;
+                        }
+                        
+                        // Filter by duration
+                        if (duration) {
+                            const durationText = card.querySelector('.meta-item:nth-child(2) span').textContent;
+                            const days = parseInt(durationText.match(/(\d+)/)[1]);
+                            
+                            if (duration === 'weekend' && (days < 1 || days > 3)) shouldShow = false;
+                            if (duration === 'short' && (days < 4 || days > 7)) shouldShow = false;
+                            if (duration === 'extended' && (days < 8 || days > 14)) shouldShow = false;
+                            if (duration === 'long' && days < 15) shouldShow = false;
+                        }
+                        
+                        // Filter by travel type
+                        if (type) {
+                            const tags = Array.from(card.querySelectorAll('.destination-tag')).map(tag => tag.textContent.toLowerCase());
+                            const categories = card.dataset.category.split(' ');
+                            
+                            const typeMatches = {
+                                'adventure': ['adventure', 'extreme', 'hiking', 'sports'],
+                                'beach': ['beach', 'islands', 'water'],
+                                'city': ['city', 'urban'],
+                                'cultural': ['cultural', 'historical', 'temples', 'art'],
+                                'nature': ['nature', 'wildlife', 'eco']
+                            };
+                            
+                            const matchTerms = typeMatches[type] || [];
+                            const hasMatchingTag = tags.some(tag => matchTerms.some(term => tag.includes(term)));
+                            const hasMatchingCategory = categories.includes(type);
+                            
+                            if (!hasMatchingTag && !hasMatchingCategory) shouldShow = false;
+                        }
+                        
+                        // Apply visibility
+                        card.style.display = shouldShow ? 'block' : 'none';
+                    });
                     
-
-                    this.reset();
+                 
+                    const visibleCards = Array.from(recommendationCards).filter(card => card.style.display !== 'none');
+                    if (visibleCards.length === 0) {
+                        alert('No results found. Try adjusting your filters.');
+                    }
                 });
+            }
+            
+            // Newsletter subscription functionality
+            const newsletterForm = document.querySelector('.newsletter-form');
+            const messageContainer = document.getElementById('newsletter-message');
+            
+            if (newsletterForm) {
+                newsletterForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Get email value
+                    const emailInput = this.querySelector('input[name="email"]');
+                    const email = emailInput.value.trim();
+                    
+                    // Store subscription in localStorage
+                    try {
+                        // Create subscriptions array if it doesn't exist
+                        const subscriptions = JSON.parse(localStorage.getItem('emailSubscriptions') || '[]');
+                        
+                        // Check if already subscribed
+                        if (subscriptions.some(sub => sub.email === email)) {
+                            showMessage('You are already subscribed to our newsletter!', 'success');
+                            return;
+                        }
+                        
+                        // Create new subscription object
+                        const subscription = {
+                            email: email,
+                            timestamp: new Date().toISOString(),
+                            source: 'recommendations page'
+                        };
+                        
+                        // Add to array and save to localStorage
+                        subscriptions.push(subscription);
+                        localStorage.setItem('emailSubscriptions', JSON.stringify(subscriptions));
+                        
+                        // Show success message and clear input
+                        showMessage('Thank you for subscribing to our newsletter!', 'success');
+                        emailInput.value = '';
+                        
+                        console.log('Subscription saved:', subscription);
+                    } catch (error) {
+                        console.error('Error saving subscription:', error);
+                        showMessage('Something went wrong. Please try again.', 'error');
+                    }
+                });
+            }
+            
+            // Function to show message
+            function showMessage(text, type) {
+                messageContainer.textContent = text;
+                messageContainer.className = type;
+                messageContainer.style.display = 'block';
+                
+                // Automatically hide after 5 seconds
+                setTimeout(() => {
+                    messageContainer.style.opacity = '0';
+                    setTimeout(() => {
+                        messageContainer.style.display = 'none';
+                        messageContainer.style.opacity = '1';
+                    }, 500);
+                }, 5000);
             }
         });
     </script>

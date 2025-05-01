@@ -29,10 +29,40 @@
                     </ul>
                 </nav>
                 <div class="user-actions">
-                    <a href="profile.html" class="profile-link">
-                        <i class="fas fa-user-circle"></i>
-                        <span>My Profile</span>
+                    <a href="login.html" class="auth-link">
+                        <i class="fas fa-sign-in-alt"></i>
+                        <span>Login</span>
                     </a>
+                    <a href="signup.html" class="auth-link auth-link-signup">
+                        <i class="fas fa-user-plus"></i>
+                        <span>Sign Up</span>
+                    </a>
+                    <!-- User profile menu (hidden by default, shown when logged in) -->
+                    <div class="user-profile-menu" style="display: none;">
+                        <div class="user-profile-toggle">
+                            <img id="profile-pic" src="" alt="Profile Picture">
+                            <span id="user-name">User</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="user-dropdown">
+                            <a href="profile.html">
+                                <i class="fas fa-user"></i> My Profile
+                            </a>
+                            <a href="bookings.html">
+                                <i class="fas fa-calendar-check"></i> My Bookings
+                            </a>
+                            <a href="wishlist.html">
+                                <i class="fas fa-heart"></i> Wishlist
+                            </a>
+                            <a href="settings.html">
+                                <i class="fas fa-cog"></i> Settings
+                            </a>
+                            <hr>
+                            <a href="#" id="logout-btn">
+                                <i class="fas fa-sign-out-alt"></i> Logout
+                            </a>
+                        </div>
+                    </div>
                 </div>
                 <div class="mobile-menu-btn">
                     <i class="fas fa-bars"></i>
@@ -53,7 +83,7 @@
                     <div class="overlay"></div>
                 </div>
                 <div class="carousel-slide">
-                    <img src="images/hom,e1.jpg"City skyline view">
+                    <img src="images/home1.jpg" alt="City skyline view">
                     <div class="overlay"></div>
                 </div>
                 <div class="carousel-slide">
@@ -404,19 +434,6 @@
         </div>
     </section>
 
-    <section class="newsletter">
-        <div class="container">
-            <div class="newsletter-content">
-                <h2>Subscribe to Our Newsletter</h2>
-                <p>Get exclusive deals, travel tips, and more delivered to your inbox</p>
-                <form class="newsletter-form">
-                    <input type="email" placeholder="Your Email Address">
-                    <button type="submit" class="btn">Subscribe</button>
-                </form>
-            </div>
-        </div>
-    </section>
-
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
@@ -478,5 +495,6 @@
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="js/script.js"></script>
+    <script src="js/home.js"></script>
 </body>
 </html>

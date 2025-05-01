@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile - TravelEase</title>
+    <link rel="icon" href="generated-icon.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/custom.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="index.html">
+                        <i class="fas fa-paper-plane"></i>
+                        <span>TravelEase</span>
+                    </a>
+                </div>
+                <nav class="nav-menu">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="recommendations.html">Recommendations</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </nav>
+                <div class="user-actions">
+                    <div class="user-profile-menu">
+                        <div class="user-profile-toggle">
+                            <img id="profile-pic" src="https://randomuser.me/api/portraits/men/82.jpg" alt="Profile Picture">
+                            <span id="user-name">User</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="user-dropdown">
+                            <a href="profile.html" class="active">
+                                <i class="fas fa-user"></i> My Profile
+                            </a>
+                            <a href="#">
+                                <i class="fas fa-calendar-check"></i> My Bookings
+                            </a>
+                            <a href="#">
+                                <i class="fas fa-heart"></i> Wishlist
+                            </a>
+                            <a href="#">
+                                <i class="fas fa-cog"></i> Settings
+                            </a>
+                            <hr>
+                            <a href="#" id="logout-btn">
+                                <i class="fas fa-sign-out-alt"></i> Logout
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="profile-section">
+        <div class="container">
+            <div class="profile-header">
+                <div class="profile-cover-photo">
+                    <img src="images/profile-cover.jpg" alt="Profile Cover" onerror="this.src='https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80'">
+                </div>
+                <div class="profile-user-info">
+                    <div class="profile-picture">
+                        <img id="main-profile-pic" src="https://randomuser.me/api/portraits/men/82.jpg" alt="Profile Picture">
+                    </div>
+                    <div class="profile-details">
+                        <h1 id="main-user-name">User Name</h1>
+                        <p><i class="fas fa-envelope"></i> <span id="user-email">user@example.com</span></p>
+                        <p><i class="fas fa-map-marker-alt"></i> Location not set</p>
+                    </div>
+                    <button class="btn btn-primary edit-profile-btn">
+                        <i class="fas fa-edit"></i> Edit Profile
+                    </button>
+                </div>
+            </div>
+
+            <div class="profile-content">
+                <div class="profile-sidebar">
+                    <div class="profile-nav">
+                        <a href="#" class="active">Profile Overview</a>
+                        <a href="#">Trip History</a>
+                        <a href="#">Saved Places</a>
+                        <a href="#">Reviews</a>
+                        <a href="#">Settings</a>
+                    </div>
+                    
+                    <div class="travel-stats">
+                        <h3>Travel Stats</h3>
+                        <div class="stat-item">
+                            <div class="stat-value">0</div>
+                            <div class="stat-label">Trips Completed</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">0</div>
+                            <div class="stat-label">Countries Visited</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value">0</div>
+                            <div class="stat-label">Reviews Written</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="profile-main">
+                    <div class="welcome-message">
+                        <h2>Welcome to Your TravelEase Profile!</h2>
+                        <p>Your profile is where you can manage your bookings, view travel history, and customize your travel preferences.</p>
+                    </div>
+                    
+                    <div class="profile-section-divider">
+                        <h3>Upcoming Trips</h3>
+                        <a href="#" class="view-all">View All</a>
+                    </div>
+                    
+                    <div class="no-content-message">
+                        <i class="fas fa-suitcase-rolling"></i>
+                        <h4>No upcoming trips</h4>
+                        <p>When you book your first trip, it will appear here.</p>
+                        <a href="index.html#planner" class="btn btn-primary">Plan a Trip</a>
+                    </div>
+                    
+                    <div class="profile-section-divider">
+                        <h3>Recent Activities</h3>
+                    </div>
+                    
+                    <div class="activity-timeline">
+                        <div class="activity-item">
+                            <div class="activity-icon">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="activity-content">
+                                <div class="activity-title">You created your account</div>
+                                <div class="activity-time">Just now</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <a href="index.html">
+                        <i class="fas fa-paper-plane"></i>
+                        <span>TravelEase</span>
+                    </a>
+                    <p>Making travel planning simple and enjoyable.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h3>Quick Links</h3>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="packages.html">Packages</a></li>
+                            <li><a href="blog.html">Travel Blog</a></li>
+                            <li><a href="contact.html">Contact Us</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Top Destinations</h3>
+                        <ul>
+                            <li><a href="#">Bali, Indonesia</a></li>
+                            <li><a href="#">Paris, France</a></li>
+                            <li><a href="#">Tokyo, Japan</a></li>
+                            <li><a href="#">Santorini, Greece</a></li>
+                            <li><a href="#">New York, USA</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Support</h3>
+                        <ul>
+                            <li><a href="#">FAQs</a></li>
+                            <li><a href="#">Terms & Conditions</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Cancellation Policy</a></li>
+                            <li><a href="#">Customer Support</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                </div>
+                <p class="copyright">© 2023 TravelEase. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="#" class="back-to-top">
+        <i class="fas fa-chevron-up"></i>
+    </a>
+
+    <script src="js/script.js"></script>
+    <script src="js/profile.js"></script>
+</body>
+</html>
